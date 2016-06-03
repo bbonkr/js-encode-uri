@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Javascript Encode URI" />
+    <meta name="author" content="Pon Cheol Ku (@bbonkr)" />
+    <title>Javascript Encode URI</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-12">
+                <div class="page-header">
+                    <h1>Javascript Encode URI</h1>
+                    <p><a href="https://github.com/bbonkr/js-encode-uri" class="btn btn-default">View on GitHub</a></p>
+                    <p>
+                        <ol>
+                            <li>Input URI string into textbox.</li>
+                            <li>Click Encode button.</li>
+                            <li>Check encoded string out.</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <!-- /.col-->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col col-lg-12">
+                <div class="form-group">
+                    <label>URI:</label>
+                    <input type="url" id="urlTextBox" class="form-control" placeholder="Input URI like http://somedomain.com?q=검색어&page=2" value="http://somedomain.com?q=검색어&page=2" focus />
+                </div>
+
+                <button id="encodeButton" class="btn btn-primary">Encode</button>
+            </div>
+            <!-- /.col-->
+        </div>
+        <!-- /.row -->
+
+        <hr />
+
+        <div class="row">
+            <div class="col col-lg-12">
+                <div class="form-group">
+                    <label>escape:</label>
+                    <div class="form-control-static" id="escapeLiteral"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>encodeURI:</label>
+                    <div class="form-control-static" id="encodeURILiteral"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>encodeURIComponent:</label>
+                    <div class="form-control-static" id="encodeURIComponentLiteral"></div>
+                </div>
+
+            </div>
+            <!-- /.col-->
+        </div>
+        <!-- /.row -->
+    </div>
+
+    <!-- Lastest jquery -->
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+
+        $('#encodeButton').on('click', function(e) {
+
+            e.preventDefault();
+
+            var uri = $('#urlTextBox').val();
+            
+            $('#escapeLiteral').empty();
+            $('#encodeURILiteral').empty();
+            $('#encodeURIComponentLiteral').empty();
+
+            $('#escapeLiteral').text(escape(uri));
+            $('#encodeURILiteral').text(encodeURI(uri));
+            $('#encodeURIComponentLiteral').text(encodeURIComponent(uri));
+        });
+
+    });
+    </script>
+</body>
+
+</html>
